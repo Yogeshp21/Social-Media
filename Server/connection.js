@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 module.exports = async () => {
-    const dbUri = process.env.envREACT_APP_MONGODB_URI
+    const dbUri = process.env.MONGODB_URI
     try {
         await mongoose.connect(dbUri)
         console.log("MongoDB is connected")

@@ -6,5 +6,5 @@ router.get('/all', requireUser, postController.getAllPostsController);
 router.post('/', requireUser, postController.createPostController);
 router.post('/like', requireUser, postController.likeAndUnlikePostController)
 router.put('/', requireUser, postController.updatePostController);
-router.delete('/', requireUser, postController.deletePost)
+router.delete('/', requireUser, postController.deletePost);
 module.exports = router;

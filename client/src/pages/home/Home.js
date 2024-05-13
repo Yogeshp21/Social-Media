@@ -1,18 +1,24 @@
-import { useEffect } from "react";
-import { axiosClient } from "../../utils/axiosClient"
-
+import Navbar from '../../components/navbar/Navbar'
+import { Outlet } from 'react-router'
+import {useDispatch} from 'react-redux'
+import { useEffect } from 'react'
+import { getMyInfo } from '../../redux/slices/appConfigSlice'
 function Home() {
-    useEffect(() => {
-        fetchData();
-    }, [])
+    const dispatch = useDispatch()
 
-    async function fetchData() {
-        const response = await axiosClient.get("/post/all");
-        console.log("got the response",response);
-    }
+    useEffect(()=>{
+        dispatch(getMyInfo())
+    })
 
     return (
-        <div>Home</div>
+        <>
+            <Navbar />
+            <div className='outlet' style={{marginTop : '60px'}}>
+
+                <Outlet />
+            </div>
+
+        </>
     )
 }
 

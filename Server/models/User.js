@@ -8,39 +8,42 @@ const userSchema = mongoose.Schema({
         unique: true,
         lowercase: true
     },
-    password : {
-        type : String,
-        require : true,
-        select : false
-    },
-    name:{
+    password: {
         type: String,
-        require : true
+        require: true,
+        select: false
     },
-    avtar:{
-        publicId : String,
-        url : String,
+    name: {
+        type: String,
+        require: true
     },
-    followers : [
+    bio: {
+        type: String,
+    },
+    avatar: {
+        publicId: String,
+        url: String,
+    },
+    followers: [
         {
-            type : mongoose.Schema.Types.ObjectId,
+            type: mongoose.Schema.Types.ObjectId,
             ref: 'user'
         }
     ],
-    following : [
+    following: [
         {
-            type : mongoose.Schema.Types.ObjectId,
-            ref : 'user',
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'user',
         }
     ],
-    posts : [
+    posts: [
         {
-            type : mongoose.Schema.Types.ObjectId,
-            ref : 'post'
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'post'
         }
     ]
-},{
+}, {
     timestamps: true
 })
 
-module.exports = mongoose.model('user',userSchema)
+module.exports = mongoose.model('user', userSchema)
